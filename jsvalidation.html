@@ -1,0 +1,85 @@
+<HTML>
+<body>
+    <h1>javascript validation</h1>
+    <br><label for="uname">name : </label>
+    <input type="text" id="tb1" value=" " required><br>
+    <br><label for="Details">About : </label>
+    <textarea id="textarea" name="txt" value="" rows="" cols="100">
+    </textarea><br><br>
+    <p6>Gender : </p6>
+    <label class="container">Male
+        <input type="radio" name="radio">
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">Female
+        <input type="radio" name="radio">
+        <span class="checkmark"></span>
+    </label><br>    <br>
+    <p5>Skills : </p5>
+    <label class="container">Python
+        <input type="checkbox">
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">Mysql
+        <input type="checkbox">
+        <span class="checkmark"></span>
+    </label>
+    <label class="container">Java
+        <input type="checkbox">
+        <span class="checkmark"></span>
+    </label><br>    <br>
+    <br><label for="phone">Mobile Number : </label>
+    <input type="text" id="tb2" value="" required><br><br>
+    <br><label for="Date">Date of Birth : </label>
+    <input type="date" id="date" name="start" value="2025-12-31" min="1999-01-01" max="2021-12-31"><br>    <br>
+    <br><label for="date">date of birth : </label>
+    <input type="text" id="mdate" value=" "><br><br>
+    <button onclick="submitData()">Submit</button>
+    <p id="check"></p>
+    <script>
+ function submitData() {
+    var name = document.getElementById("tb1").value;
+    if (name.length >= 20) {
+        alert("User name can't exit 20 or name cant be empty");
+    }
+    var reg = /^[a-zA-Z\' ']+$/;
+    var txt = name.split(" ");
+    for (var i = 0; i < txt.length; i++) {
+        txt[i] = txt[i].charAt(0).toUpperCase() + txt[i].slice(1);
+    }
+    const txtres = txt.join(" ");
+    if (name.match(reg)) {
+        //document.getElementById("check").innerHTML = txtres;
+        console.log(txtres)
+    }
+    else {
+        alert("Name should not have any unwanted strings")
+    }
+    var about = document.getElementById("textarea").value;
+    console.log(about);
+    var num = document.getElementById("tb2").value;
+    var numreg = /^[0-9\+" "-]+$/;
+    if (num.match(numreg)) {
+        console.log(num);
+        document.getElementById("tb2").innerHTML = num;
+    }
+    else {
+        alert("Not a valid number")
+    }
+    var dt = document.getElementById("date").value;
+    console.log("Date of entry : "+dt);
+    var mdt = document.getElementById("mdate").value;
+    var dtreg = /^(0?[1-9]|[12][0-9]|3[01])[-/](0?[1-9]|1[012])[-/](19|20)\d\d$/;
+    if (mdt.match(dtreg)) {
+        console.log(mdt);
+
+    }
+     console.log(mdt);
+    }
+
+    </script>
+
+</body>
+
+</HTML>
+
